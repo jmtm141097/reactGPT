@@ -4,6 +4,7 @@ import {
   MyMessage,
   TextMessageBox,
   TextMessageBoxFile,
+  TextMessageBoxSelect,
   TypingLoader,
 } from "../../components";
 
@@ -17,15 +18,15 @@ export const OrthographyPage = () => {
   const [messages, setMessages] = useState<Message[]>([]);
 
   const handlePost = async (text: string) => {
-    setIsLoading(true)
-    setMessages((prev) => [...prev, {text, isGpt: false}])
+    setIsLoading(true);
+    setMessages((prev) => [...prev, { text, isGpt: false }]);
 
     //TODO UseCase
 
-    setIsLoading(false)
+    setIsLoading(false);
 
     //TODO: Añadir mensaje de isgpt en true
-  }
+  };
 
   return (
     <div className="chat-container">
@@ -47,10 +48,24 @@ export const OrthographyPage = () => {
           )}
         </div>
       </div>
+
+      {/* <TextMessageBox
+        onSendMessage={handlePost}
+        placeHolder="Escribe aqui lo que deseas"
+        disableCorrections
+      />
       <TextMessageBoxFile
         onSendMessage={handlePost}
         placeHolder="Escribe aqui lo que deseas"
-      />
+      /> */}
+
+      {/* <TextMessageBoxSelect
+        onSendMessage={console.log}
+        options={[
+          { id: "1", text: "hola" },
+          { id: "2", text: "mundo" },
+        ]}
+      /> */}
     </div>
   );
 };
